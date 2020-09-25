@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDo } from '../../_interface/todo';
+import { DataService } from '../../_services/data.services';
 
 @Component({
   selector: 'app-template-todo-form',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateTodoFormComponent implements OnInit {
 
-  constructor() { }
+    public toDo$: ToDo;
 
-  ngOnInit(): void {
-  }
+    constructor(public _dataService: DataService) {
+        this.toDo$ = {
+            label: undefined,
+            status: false
+        };
+    }
 
+    ngOnInit() {
+    }
+
+    // Create new ToDo
+    public createToDo(event: any): void {
+        this._dataService.postToDo(this.toDo$).subscribe((data: ToDo) => {
+            this._dataService.getGlobalData();
+            this.toDo$ = {
+                label: undefined,
+                status: false
+            };
+        }, error => {
+            console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
+        });
+    }
 }
