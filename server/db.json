@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "label": "Website erstellen",
+      "status": true,
+      "position": 1
+    },
+    {
+      "id": 1,
+      "label": "Design entwickeln",
+      "status": false,
+      "position": 2
+    },
+    {
+      "label": "Rechnung erstellen",
+      "status": "false",
+      "position": "3",
+      "id": 2
+    }
+  ]
+}
