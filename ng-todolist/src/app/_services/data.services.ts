@@ -12,9 +12,7 @@ export class DataService {
     public $todos: Observable<ToDo[]>;
     public $todosdone: Observable<ToDo[]>;
 
-    constructor(
-        private _http: HttpClient
-    ) {
+    constructor(private _http: HttpClient) {
         this.getGlobalData();
     }
 
